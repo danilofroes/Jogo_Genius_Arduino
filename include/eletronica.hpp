@@ -5,7 +5,9 @@ Aqui é declarado toda parte eletrônica do jogo
 #include <Arduino.h>
 #pragma once
 
-// Pinagem
+/* ------------------------------------------------------------------ */
+/*                             Pinagem                                */
+
 #define LED_VERDE 2
 #define LED_AMARELO 3
 #define LED_VERMELHO 4
@@ -16,6 +18,11 @@ Aqui é declarado toda parte eletrônica do jogo
 #define BOTAO_VERMELHO 12
 #define BOTAO_AZUL 13
 
+/* ------------------------------------------------------------------- */
+
+/**
+ * @brief Função que inicializa as portas do arduino
+ */
 void portas() {
 
     pinMode(LED_VERDE, OUTPUT);

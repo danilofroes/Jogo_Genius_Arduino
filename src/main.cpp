@@ -16,12 +16,47 @@ void setup() {
 
 void loop() {
 
-   for (int i = 0; i < valorSequencia; i++) {
+  switch (estadoAtual()) {
 
-    piscaLed(sequenciaLuzes[i]);
+    case INICIO_PROXIMA_RODADA:
+      rodada++;
+      ledsRespondidos = 0;
 
-   }
+      if (rodada <= valorSequencia) {
+        iniciarSequenciaRodada();
+      }
 
-   int botaoApertado = checarBotao();
+      break;
+
+    case RESPOSTA_USUARIO:
+      int resposta = checarBotao();
+
+      if (resposta == -1) {
+        return;
+      }
+
+      if (resposta == sequenciaLuzes[ledsRespondidos]) {
+        ledsRespondidos++;
+        Serial.println("Resposta certa");
+      }
+
+      else {
+        Serial.println("Resposta errado");
+      }
+
+      rodada = valorSequencia + 2;
+
+      break;
+
+    case USUARIO_ACERTOU:
+      ledsAcessos();
+      break;
+    
+    case USUARIO_ERROU:
+      ledsPiscando();
+      break;
+  }
+
+  delay(meioSegundo);
 
 }  
