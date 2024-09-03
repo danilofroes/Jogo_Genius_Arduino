@@ -10,7 +10,7 @@
 
 ## 📖 Sobre o Projeto
 
-O **Jogo Genius** é um desafio de memória onde o jogador deve repetir uma sequência de luzes sem errar a ordem. Este projeto ensina você a criar sua própria versão do jogo utilizando Arduino e componentes eletrônicos básicos.
+Este projeto recria o clássico jogo de memória Genius, que é um desafio no qual o jogador deve repetir uma sequência de luzes sem errar a ordem. Este projeto ensina você a criar sua própria versão do jogo utilizando Arduino e componentes eletrônicos básicos.
 
 ## ⚙️ Componentes Eletrônicos
 
