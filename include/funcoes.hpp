@@ -8,13 +8,14 @@ Aqui são declaradas as variáveis e funções utilizadas no estrutura do códig
 #pragma once
 
 // Variáveis de tempo
-const int umSegundo = 1000;
-const int meioSegundo = 500;
+#define UM_SEGUNDO       1000
+#define MEIO_SEGUNDO     500
 
-const int valorSequencia = 4;
-int sequenciaLuzes[valorSequencia];
-int rodada = 0;
-int ledsRespondidos = 0;
+#define SEQUENCIA        4
+
+uint8_t sequenciaLuzes[SEQUENCIA];
+uint8_t rodada = 0;
+uint8_t ledsRespondidos = 0;
 
 enum Estados {
     INICIO_PROXIMA_RODADA,
@@ -28,9 +29,9 @@ enum Estados {
  * 
  * @return Retorna o estado atual do jogo
  */
-int estadoAtual() {
+uint8_t estadoAtual() {
 
-    if (rodada <= valorSequencia) {
+    if (rodada <= SEQUENCIA) {
 
         if (ledsRespondidos == rodada) {
             return INICIO_PROXIMA_RODADA;
@@ -41,7 +42,7 @@ int estadoAtual() {
         }
     }
 
-    else if (rodada == valorSequencia + 1) {
+    else if (rodada == SEQUENCIA + 1) {
         return USUARIO_ACERTOU;
     }
 
@@ -61,7 +62,7 @@ void iniciaJogo() {
 
     int corAleatoria = random(LED_VERDE, LED_AZUL + 1);
 
-    for (int i = 0; i < valorSequencia; i++) {
+    for (uint8_t i = 0; i < SEQUENCIA; i++) {
         sequenciaLuzes[i] = corAleatoria;
     }
 }
@@ -73,15 +74,14 @@ void iniciaJogo() {
  * 
  * @return Porta do led que piscou
  */
-int piscaLed(int led) {
+uint8_t piscaLed(uint8_t led) {
 
     digitalWrite(led, HIGH);
-    delay(umSegundo);
+    delay(UM_SEGUNDO);
     digitalWrite(led, LOW);
-    delay(meioSegundo);
+    delay(MEIO_SEGUNDO);
 
     return led;
-
 }
 
 /**
@@ -89,7 +89,7 @@ int piscaLed(int led) {
  */
 void iniciarSequenciaRodada() {
 
-    for (int i = 0; i < rodada; i++) {
+    for (uint8_t i = 0; i < rodada; i++) {
 
     piscaLed(sequenciaLuzes[i]);
 
@@ -131,14 +131,14 @@ void ledsAcessos() {
     digitalWrite(LED_VERMELHO, HIGH);
     digitalWrite(LED_AZUL, HIGH);
 
-    delay(umSegundo);
+    delay(UM_SEGUNDO);
 
     digitalWrite(LED_AMARELO, LOW);
     digitalWrite(LED_VERDE, LOW);
     digitalWrite(LED_VERMELHO, LOW);
     digitalWrite(LED_AZUL, LOW);
 
-    delay(meioSegundo);
+    delay(MEIO_SEGUNDO);
 
 }
 
@@ -148,6 +148,6 @@ void ledsPiscando() {
     piscaLed(LED_VERDE);
     piscaLed(LED_VERMELHO);
     piscaLed(LED_AZUL);
-    delay(meioSegundo);
+    delay(MEIO_SEGUNDO);
 
 }

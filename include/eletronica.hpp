@@ -8,15 +8,15 @@ Aqui é declarado toda parte eletrônica do jogo
 /* ------------------------------------------------------------------ */
 /*                             Pinagem                                */
 
-#define LED_VERDE 2
-#define LED_AMARELO 3
-#define LED_VERMELHO 4
-#define LED_AZUL 5
+#define LED_VERDE        2
+#define LED_AMARELO      3
+#define LED_VERMELHO     4
+#define LED_AZUL         5
 
-#define BOTAO_VERDE 10
-#define BOTAO_AMARELO 11
-#define BOTAO_VERMELHO 12
-#define BOTAO_AZUL 13
+#define BOTAO_VERDE      10
+#define BOTAO_AMARELO    11
+#define BOTAO_VERMELHO   12
+#define BOTAO_AZUL       13
 
 /* ------------------------------------------------------------------- */
 

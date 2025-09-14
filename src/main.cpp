@@ -22,7 +22,7 @@ void loop() {
       rodada++;
       ledsRespondidos = 0;
 
-      if (rodada <= valorSequencia) {
+      if (rodada <= SEQUENCIA) {
         iniciarSequenciaRodada();
       }
 
@@ -44,7 +44,7 @@ void loop() {
         Serial.println("Resposta errado");
       }
 
-      rodada = valorSequencia + 2;
+      rodada = SEQUENCIA + 2;
 
       break;
 
@@ -57,6 +57,6 @@ void loop() {
       break;
   }
 
-  delay(meioSegundo);
+  delay(MEIO_SEGUNDO);
 
 }  
